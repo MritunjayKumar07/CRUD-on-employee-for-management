@@ -1,13 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="ViewEmployees.aspx.cs" Inherits="CRUD_on_employee_for_management.Employee.Display" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script>
-        function ChangePage(pageIndex) {
-            alert('Hello! Page Index: ' + pageIndex); // Debugging the page index
-            __doPostBack('<%= Page.ClientID %>', 'ChangePage_' + pageIndex); // Postback to the server
-        }
-    </script>
-
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
