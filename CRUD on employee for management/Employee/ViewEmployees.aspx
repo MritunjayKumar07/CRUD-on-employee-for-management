@@ -1,21 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="ViewEmployees.aspx.cs" Inherits="CRUD_on_employee_for_management.Employee.Display" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script>
+        function ChangePage(pageIndex) {
+            alert('Hello! Page Index: ' + pageIndex); // Debugging the page index
+            __doPostBack('<%= Page.ClientID %>', 'ChangePage_' + pageIndex); // Postback to the server
+        }
+    </script>
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav class="navbar navbar-light bg-light">
         <div class="form-inline">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">@</span>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <asp:TextBox ID="txtSearch" runat="server" placeholder="Search by Name" aria-label="Search by Name" CssClass="form-control"></asp:TextBox>
+                <asp:Button ID="Button2" runat="server" Text="Search" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
             </div>
-              <asp:TextBox ID="txtSearch" runat="server" placeholder="Search by Name" aria-label="Search by Name" CssClass="form-control"></asp:TextBox>
-              <asp:Button ID="Button2" runat="server" Text="Search" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
-          </div>
         </div>
         <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-primary" NavigateUrl="~/Employee/AddEmployee.aspx">Add new</asp:HyperLink>
     </nav>
-    <br /><br />
+    <br />
+    <br />
     <table class="table">
         <thead>
             <tr>
@@ -44,5 +53,13 @@
                 </ItemTemplate>
             </asp:Repeater>
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    <asp:Literal ID="Pagination" runat="server"></asp:Literal>
+                </td>
+            </tr>
+        </tfoot>
     </table>
+
 </asp:Content>
