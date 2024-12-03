@@ -99,7 +99,7 @@ namespace CRUD_on_employee_for_management.Employee
                         {
                             lblMessage.Text = "Employee added successfully!";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
-                            Server.Transfer("ViewEmployees.aspx");
+                            Response.Redirect("ViewEmployees.aspx");
                         }
                         else
                         {

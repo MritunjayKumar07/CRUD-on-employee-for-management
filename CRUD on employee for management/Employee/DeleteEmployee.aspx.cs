@@ -29,12 +29,12 @@ namespace CRUD_on_employee_for_management.Employee
                         if (rowAffect > 0)
                         {
                             Response.Write("<script>alert('Employee deleted successfully!'); window.location='ViewEmployees.aspx';</script>");
-                            Server.Transfer("ViewEmployees.aspx");
+                            Response.Redirect("ViewEmployees.aspx");
                         }
                         else
                         {
                             Response.Write("<script>alert('No employee found with this ID.');</script>");
-                            Server.Transfer("ViewEmployees.aspx");
+                            Response.Redirect("ViewEmployees.aspx");
                         }
                     }
                 }
@@ -42,7 +42,7 @@ namespace CRUD_on_employee_for_management.Employee
             catch (Exception ex)
             {
                 Response.Write($"<script>alert('An error occurred: {ex.Message}');</script>");
-                Server.Transfer("ViewEmployees.aspx");
+                Response.Redirect("ViewEmployees.aspx");
             }
         }
     }

@@ -53,7 +53,7 @@ namespace CRUD_on_employee_for_management.Employee
                         if (rowAffect > 0)
                         {
                             lblMessage1.Text = "Employee added successfully!";
-                            Server.Transfer("ViewEmployees.aspx");
+                            Response.Redirect("ViewEmployees.aspx");
                             return;
                         }
                         else
